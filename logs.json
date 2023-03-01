@@ -1,0 +1,156 @@
+{
+  "openapi": "3.0.0",
+  "x-stoplight": {
+    "id": "wty0glsd8w5rd"
+  },
+  "info": {
+    "title": "logs",
+    "version": "1.0",
+    "description": "This api logs users activities",
+    "contact": {
+      "name": "pixeclouds",
+      "url": "https://github.com/pixeclouds"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "local"
+    }
+  ],
+  "paths": {
+    "/user": {
+      "post": {
+        "summary": "Post new user",
+        "operationId": "post-user",
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "user_id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "Post a new user info",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "tags": [
+          "user"
+        ]
+      }
+    },
+    "/logs": {
+      "get": {
+        "summary": "Get latest log",
+        "tags": [
+          "logs"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "user_id": {
+                      "type": "string"
+                    },
+                    "lastLogs": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "operationId": "get-logs",
+        "description": "Get when a user lastest log",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "user_id"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update activity logs",
+        "operationId": "put-logs",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "description": "Update activity logs",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "user_id"
+                ]
+              }
+            }
+          }
+        },
+        "tags": [
+          "logs"
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}
