@@ -28,9 +28,9 @@ app.post("/user", (req, res) => {
 // rereoute from the home page to the docs page
 app.get("/", (req, res) => {
     let port = process.env.PORT
-    let host = process.env.HOST
+    let host = process.env.HOST_URL
 
-    let docsurl = `${host}:${port}/api-docs`
+    let docsurl = `${host}/api-docs`
     res.redirect(docsurl)
 })
 
