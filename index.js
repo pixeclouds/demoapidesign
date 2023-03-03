@@ -31,7 +31,7 @@ app.get("/", (req, res) => {
     let host = process.env.HOST_URL
 
     let docsurl = `${host}/api-docs`
-    res.redirect(docsurl)
+    res.redirect("/api-docs")
 })
 
 app.listen(8080, () => {
