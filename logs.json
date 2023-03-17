@@ -18,12 +18,12 @@
       "description": "local"
     },
     {
-      "url":"https://dolphin-app-panec.ondigitalocean.app",
+      "url":"https://staff-logger.onrender.com",
       "description": "production"
     }
   ],
   "paths": {
-    "/user": {
+    "/user": 
       "post": {
         "summary": "Post new user",
         "operationId": "post-user",
